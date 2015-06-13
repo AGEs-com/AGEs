@@ -59,8 +59,12 @@ WSGI_APPLICATION = 'AGEs_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'AGES',
+        'USER': 'kunio',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -83,6 +87,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# HTMLを格納するフォルダパスを設定、BASE_DIRからの相対パス
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 
 TEMPLATE_DIRS = (
