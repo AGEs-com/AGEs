@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AGEs</title>
+    </head>
+
+    <body>
+        <h1>Add a Person</h1>
+
+        <form id="person_form" method="post" action="/AGEs/add_person/">
+
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+                <br>
+            {% endfor %}
+
+            <input type="submit" name="submit" value="Create Person" />
+        </form>
+    </body>
+
+</html>

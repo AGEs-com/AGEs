@@ -13,10 +13,11 @@
                 <img src="{{ picture.image.url }}" width="200">
                 {% endfor %}
             {% else %}
-                <strong>No pages currently in category.</strong>
+                <strong>No pictures currently in category.</strong>
             {% endif %}
         {% else %}
             The specified category {{ item_name }} does not exist!
         {% endif %}
+        <a href="/AGEs/add_picture/{{ slug }}">Add a New Picture</a><br />
     </body>
 </html>
