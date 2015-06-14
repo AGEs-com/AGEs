@@ -1,0 +1,28 @@
+/*Username‚Ì“o˜^*/
+#uploadtable{
+	margin-top:1em;
+	color:black;
+	font-weight:bold;
+	font-size: 14px;
+	text-align: left;
+	font-family: MS Sans Serif;
+	line-height: 20px;
+}
+
+#id_personname{
+	position: relative;
+	left: 100px;
+}
+#id_age{
+	position: relative;
+	left: 159px;
+}
+#id_comment{
+	position: relative;
+	left: 125px;
+}
+#id_picture{
+	position: relative;
+	left: 202px;
+}
+    

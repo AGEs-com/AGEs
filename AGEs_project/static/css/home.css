@@ -1,0 +1,43 @@
+
+/*title*/
+h1{
+	color:dimgray;
+	font-weight:bold;
+	font-size: 125px;
+	text-align: center;
+	font-family: Gungsuh;
+	<!--font-family: Comic Sans MS;-->
+	<!--font-family: fantasy;-->
+	line-height: 12px;
+}
+#icon{
+	font-size:90px;
+}
+
+
+/*What's AGEs*/
+#whatsages{
+	color:glay;
+	font-size: 12px;
+	text-align: center;
+	font-family: Gungsuh;
+	line-height: 44px;
+}
+
+/*Menu*/
+#person{
+	color:white;
+	font-size: 44px;
+	text-align: center;
+	font-family: Monotype Corsiva;
+	line-height: 72px;
+}
+#object{
+	color:white;
+	font-size: 44px;
+	text-align: center;
+	font-family: Monotype Corsiva;
+	line-height: 72px;
+}
+
+

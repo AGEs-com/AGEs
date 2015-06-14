@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+html{
+	height:100%;
+	background-color:white;
+	#background-color:AliceBlue;
+	text-align: center;
+}
+
+body{
+	height:210px;
+	#background-color:#0E113C;
+	background-color:whitesmoke;
+	#background-color:AliceBlue;
+	text-align: center;
+}
+
+#style{
+	width: 70%;
+	height: 50%;
+	padding: 10px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+/*head*/
+#headages{
+	color:black;
+	font-weight:bold;
+	font-size: 14px;
+	font-family: Gungsuh;
+}
+
+/*title*/
+h1{
+	#color:#E82583;
+	color:darkorange ;
+	font-weight:bold;
+	font-size: 90px;
+	text-align: center;
+	font-family: Gungsuh;
+	<!--font-family: Comic Sans MS;-->
+	<!--font-family: fantasy;-->
+	line-height: 12px;
+}
+#icon{
+	font-size:60px;
+}
+
+/*HeadMenu(Person,Object“à)*/
+
+#home{
+	font-weight:bold;
+	font-size: 16px;
+	text-align: center;
+	line-height: 20px;
+	font-family:MS Sans Serif;
+}
+#alllist{
+	font-weight:bold;
+	font-size: 16px;
+	text-align: center;
+	line-height: 20px;
+	font-family:MS Sans Serif;
+}
+
+#upload{
+	font-weight:bold;
+	font-size: 16px;
+	text-align: center;
+	line-height: 20px;
+	font-family:MS Sans Serif;
+}
+
+#search{	
+	margin-top:0.8em;
+	float:right;
+	font-weight:bold;
+	text-align: center;
+	font-family:MS Sans Serif;
+}
+#cool_search{	
+	float:right;
+	font-weight:bold;
+	text-align:right;
+	font-family:MS Sans Serif;
+}
+
+/*logo*/
+#logo{
+	margin-top:10em;
+	color:gray;
+	font-weight:bold;
+	font-size: 20px;
+	text-align: center;
+	font-family: Gungsuh;
+	line-height: 50px;
+}
+

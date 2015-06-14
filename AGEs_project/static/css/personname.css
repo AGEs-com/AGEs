@@ -1,0 +1,32 @@
+ul.thumbzoom { list-style-type: none; }
+ul.thumbzoom li {
+ float: left;
+ margin: 0 5px 5px 0;
+}
+ul.thumbzoom li img {
+ border: 2px  #bbb;
+ width: 120px;
+ height: 90px;
+ border-radius: 5px;
+
+
+ul.thumbzoom li a { display: block; }
+
+.clearfix:after {
+ content: ".";
+ display: block;
+ height: 0;
+ line-height: 0;
+ clear: both;
+ visibility: hidden;
+}
+.clearfix { display: inline-block; }
+
+/* MacIE—p */
+*+html .clearfix { height: 1%; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+
+
+
