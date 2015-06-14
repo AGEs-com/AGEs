@@ -82,14 +82,20 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images)のURLを設定
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
 
-# HTMLを格納するフォルダパスを設定、BASE_DIRからの相対パス
+# Templateファイル(HTML等)を格納するフォルダパスを設定（BASE_DIRからの相対パス）
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
-
+# Templateディレクトリパスに上記TEMPLATE_PATHを追加
 TEMPLATE_DIRS = (
     TEMPLATE_PATH,
 )
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

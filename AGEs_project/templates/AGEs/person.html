@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AGEs</title>
+    </head>
+
+    <body>
+        <h1>AGEs says...hello world!</h1>
+
+        {% if items %}
+            <ul>
+                {% for item in items %}
+                <li><a href="/AGEs/item/{{ item.slug }}">{{ item.item_name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}
+
+        <a href="/AGEs/about/">About</a>
+    </body>
+</html>

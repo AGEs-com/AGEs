@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AGEs</title>
+    </head>
+
+    <body>
+        <h1>{{ item_name }}</h1>
+        {% if item_name %}
+            {% if pictures %}
+                {% for picture in pictures %}
+                <!-- picture.image.url の.urlを書くことがポイント！これで画像を表示できる -->
+                <img src="{{ picture.image.url }}" width="200">
+                {% endfor %}
+            {% else %}
+                <strong>No pages currently in category.</strong>
+            {% endif %}
+        {% else %}
+            The specified category {{ item_name }} does not exist!
+        {% endif %}
+    </body>
+</html>
