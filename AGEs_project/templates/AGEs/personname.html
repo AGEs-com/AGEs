@@ -1,101 +1,39 @@
-<!DOCTYPE html>
+	  		
+{% extends 'AGEs/base.html' %}
 {% load staticfiles %}
-<html lang="ja" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head>
-	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		
-	<meta charset="UTF-8">
-	<title>AGEs</title>
-	<!--検索エンジン向けの情報を提供する-->
-	<meta name="description" content="アイドル、俳優、お酒、おもちゃ。好きなものの写真を時系列で整理しませんか。"/>
-	<meta name="keywords" content="画像,俳優,アイドル,女優,酒,おもちゃ,プラットフォーム,PLATFORM,FACEBOOK,Twitter"/>
-	
-	<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/bootstrap-theme.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/common.css" %}">
-    <link rel="stylesheet" href="{% static "css/personname.css" %}">
-	<script type="text/javascript" src="{% static "js/jquery-1.11.3.min.js" %}"></script>
-	<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
-	
-	<!-- Lightbox -->
-	<link rel="stylesheet" href="{% static "css/lightbox.css" %}">
-	<link rel="stylesheet" href="{% static "js/lightbox.min.js" %}">
-	
-</head>
 
-<body>
-	<div id="style" class="container bs-docs-container">
-		<div class="row">        
-	        <a id="headages" href="/AGEs/" class="navbar-brand">AGEs</a>
-	    </div>
-        <div class="col-lg-12" role="main">
-        	<div class="bs-docs-section">
-		  		<h1 id="whatsages" class="page-header">Person</h1>
-			</div>
-			<ul class="nav nav-pills">
-				<li id="home"><a href="/AGEs/">
-					<span id=mini_icon class="glyphicon glyphicon-home"></span>				
-					Home
-				</a></li>
-  				<li id="alllist"><a href="/AGEs/person/">
-  					<span id=mini_icon class="glyphicon glyphicon-th-list"></span>			
-  					All List
-  				</a></li>
-  				<li id="upload"><a href="/AGEs/add_person/">
-	  				<span id=mini_icon class="glyphicon glyphicon-upload"></span>
-  					Upload
-  				</a></li>
-				<!--
-				<form id="search" method="get" action="input_search.html">
-					<p>
-						<input type="search" name="q" size="30" placeholder="Search name" required> 
-						<input type="submit" value="Search" class="btn btn-default btn-xs">
-					</p>
-				</form>
-				-->
-					<div id="custom-search-input">
-						<div id="cool_search" class="input-group col-md-3">
-							<input type="search" class="form-control input-lg" placeholder="Search AGE" />
-							<span class="input-group-btn">
-								<button class="btn btn-default btn-lg" type="button">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</span>
-						</div>
-					</div>
-				</div>
-				
-			</ul>
-	  		<h2 id="glyphicons-glyphs">{{ item_name }}</h2>
-			<div class="row" id="list">
-				<ul class="thumbzoom clearfix">
-					{% if item_name %}
-			            {% if pictures %}
-			                {% for picture in pictures %}
-			                <!-- picture.image.url の".url"を書くことがポイント！これで画像を表示できる -->
-			                <li><a href="{{ picture.image.url }}" rel="lightbox[group1]"><img src="{{ picture.image.url }}"></a></li>
-			                {% endfor %}
-			            {% else %}
-			                <strong>No pictures currently in category.</strong>
-			            {% endif %}
-			        {% else %}
-			            The specified category {{ item_name }} does not exist!
-			        {% endif %}
-				</ul>
-			</div>
-			<a href="/AGEs/add_picture/{{ slug }}">Add a New Picture</a><br />
-			<div id="header_aff">
-				<!--▼▼ アフリエィト ▼▼-->
-				<script type="text/javascript" src="http://100516.advision-adnw.jp/t/001/038/a1001038.js"></script>
-				<!--▲▲ アフリエィト ▲▲-->
-			</div>
-			
-			<div id="logo">
-				<!--@AGEs-->
-				<h5>@AGEs</h5>
-			</div>
-		</div>
-	</div>	
-</body>
-</html>
+{% block title %}AGEs/Person/Pictures{% endblock %}
+
+{% block body_title %}Person{% endblock %}
+
+{% block upload %}/AGEs/add_picture/{{ id }}{% endblock %}
+
+<!-- 下記から各画面依存　-->
+{% block body_block %}
+<link rel="stylesheet" href="{% static "css/personname.css" %}">
+<!-- Lightbox -->
+<link rel="stylesheet" href="{% static "css/lightbox.css" %}">
+<link rel="stylesheet" href="{% static "js/lightbox.min.js" %}">
+<h2 id="glyphicons-glyphs">{{ item_name }}</h2>
+<div class="row" id="list">
+	<ul class="thumbzoom clearfix">
+		{% if item_name %}
+            {% if pictures %}
+                {% for picture in pictures %}
+                <!-- picture.image.url の".url"を書くことがポイント！これで画像を表示できる -->
+                <li>
+                	<a href="{{ picture.image.url }}" rel="lightbox[group1]">
+                		<img src="{{ picture.image.url }}">
+                	</a>
+                </li>
+                {% endfor %}
+            {% else %}
+                <strong>No pictures currently in category.</strong>
+            {% endif %}
+        {% else %}
+            The specified category {{ item_name }} does not exist!
+        {% endif %}
+	</ul>
+</div>
+{% endblock %}
+

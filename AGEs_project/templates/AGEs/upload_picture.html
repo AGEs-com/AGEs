@@ -1,28 +1,41 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>AGEs</title>
-    </head>
+{% extends 'AGEs/base.html' %}
+{% load staticfiles %}
 
-    <body>
-        <h1>Add a Picture</h1>
+{% block title %}AGEs/Person{% endblock %}
 
-        <form id="picture_form" method="post" action="/AGEs/add_picture/">
+{% block body_title %}Person{% endblock %}
 
-            {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-            {% endfor %}
+{% block upload %}/AGEs/add_picture/{{ id }}{% endblock %}
 
-            {% for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ field.help_text }}
-                {{ field }}
-                <br>
-            {% endfor %}
+<!-- 下記から各画面依存　-->
+{% block body_block %}
+<h2 id="glyphicons-glyphs">Post a picture</h2>
+<link rel="stylesheet" href="{% static "css/upload.css" %}">
+{% if registered %}
+	<strong>Thank you for posting!</strong>
+{% endif %}
+<form enctype="multipart/form-data" id="picture_form" method="post" action="/AGEs/add_picture/{{ id }}">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+ 	   {{ hidden }}
+    {% endfor %}
+    
+    {% for field in form.visible_fields %}
+	    {{ field.errors }}
+	{% endfor %}
 
-            <input type="submit" name="submit" value="Post Picture" />
-        </form>
-    </body>
-
-</html>
+    Please enter the picture name.
+    <input id="id_picture_name" maxlength="64" name="picture_name" type="text" />
+    <br>
+    Please enter the person age.
+    <input id="id_age" name="age" type="number" />
+    <br>
+    Please enter the picture description.
+    <input id="id_description" maxlength="200" name="description" type="text" />
+    <br>
+    <input id="id_image" name="image" type="file" />
+    <br>
+	<input type="submit" name="submit" value="Post Picture" class="danger"/>	
+</form>
+<br>
+{% endblock %}

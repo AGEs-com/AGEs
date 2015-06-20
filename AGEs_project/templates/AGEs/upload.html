@@ -1,137 +1,28 @@
-<!DOCTYPE html>
+{% extends 'AGEs/base.html' %}
 {% load staticfiles %}
-<html lang="ja" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head>
-	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<!-- ※タブレット用のスタイル（tablet.css） -->
-	<link rel="stylesheet" media="all" type="text/css" href="hometablet.css" />
-	<!-- ※スマートフォン用のスタイル（smart.css） -->
-	<link rel="stylesheet" media="all" type="text/css" href="homesmart.css" />
-		
-	<meta charset="UTF-8">
-	<title>AGEs</title>
-	<!--検索エンジン向けの情報を提供する-->
-	<meta name="description" content="アイドル、俳優、お酒、おもちゃ。好きなものの写真を時系列で整理しませんか。"/>
-	<meta name="keywords" content="画像,俳優,アイドル,女優,酒,おもちゃ,プラットフォーム,PLATFORM,FACEBOOK,Twitter"/>
-	
-	<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/bootstrap-theme.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/common.css" %}">
-    <link rel="stylesheet" href="{% static "css/upload.css" %}">
-	<script type="text/javascript" src="{% static "js/jquery-1.11.3.min.js" %}"></script>
-	<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
 
-</head>
+{% block title %}AGEs/Person{% endblock %}
 
-<body>
-	<div id="style" class="container bs-docs-container">
-		<div class="row">        
-	        <a id="headages" href="/AGEs/" class="navbar-brand">AGEs</a>
-	    </div>
-	    
-        <div class="col-lg-12" role="main">
-        	<div class="bs-docs-section">
-		  		<h1 id="title" class="page-header">Person</h1>
-			</div>
-			<ul class="nav nav-pills">
-				<li id="home"><a href="/AGEs/">
-					<span id=mini_icon class="glyphicon glyphicon-home"></span>				
-					Home
-				</a></li>
-  				<li id="alllist"><a href="/AGEs/person/">
-					<span id=mini_icon class="glyphicon glyphicon-th-list"></span>				
-  					All List
-  				</a></li>
-  				<li id="upload" class="active" ><a href="#">
-					<span id=mini_icon class="glyphicon glyphicon-upload"></span>			
-  					Upload
-  				</a></li>
-				<!--
-				<form id="search" method="get" action="input_search.html">
-					<p>
-						<input type="search" name="q" size="30" placeholder="Search name" required> 
-						<input type="submit" value="Search" class="btn btn-default btn-xs">
-					</p>
-				</form>
-				-->
-					<div id="custom-search-input">
-						<div id="cool_search" class="input-group col-md-3">
-							<input type="search" class="form-control input-lg" placeholder="Search NAME" />
-							<span class="input-group-btn">
-								<button class="btn btn-default btn-lg" type="button">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</span>
-						</div>
-					</div>
-				</div>
-				
-				
-			</ul>		
-	  		<h2 id="glyphicons-glyphs">Upload</h2>
-			<div class="row" id="uploadtable">
-			   <!--<div class="col-xs-6 col-sm-4 col-md-2">-->
-			   <div class="col-ls-12">
-			   		<form id="person_form" method="post" action="/AGEs/add_person/">
+{% block body_title %}Person{% endblock %}
 
-			            {% csrf_token %}
-			            {% for hidden in form.hidden_fields %}
-			                {{ hidden }}
-			            {% endfor %}
-			
-			            {% for field in form.visible_fields %}
-			                {{ field.errors }}
-			                {{ field.help_text }}
-			                {{ field }}
-			                <br>
-			            {% endfor %}
-			
-			            <input type="submit" name="submit" value="Create Person" />
-				    </form>
-				        <form id="user_form" method="post" action="/ages/register/" enctype="multipart/form-data">
-				            <input type='hidden' name='csrfmiddlewaretoken' value='G0GT5xl60JuuQHjZVzYlrA10wdPdxAO0' />
-				            <!-- Display each form. The as_p method wraps each element in a paragraph
-	            		     (<p>) element. This ensures each element appears on a new line,
-	                 		making everything look neater. -->
-	            			<p id="personname">
-	            				<label for="id_personname">Person Name		:</label> 
-	            				<input id="id_personname" maxlength="30" name="personname" type="text" />
-	            				<!--<span class="helptext">Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.</span>-->
-	            			</p>
-							<p>
-								<label for="id_age">AGE		:</label> 
-								<input id="id_age" maxlength="75" name="age" type="age" />
-							</p>
-							<p>
-								<label for="id_comment">Comment		:</label> 
-								<input id="id_comment" name="comment" type="comment" />
-							</p>
-							<p>
-								<label for="id_picture">Picture		:</label>
-								<input id="id_picture" name="picture" type="file" accept="image/*" required multiple />
-				            	<!-- Provide a button to click to submit the form. -->
-				            </p>
-							<!--Upload-->
-							<input type="submit" name="submit" value="Upload" class="btn btn-danger">
-        				</form>
-						<br>
-						<a href="/AGEs/person">Back</a>
-				</div>
-			</div>
-			
-			<div id="header_aff">
-				<!--▼▼ アフリエィト ▼▼-->
-				<script type="text/javascript" src="http://100516.advision-adnw.jp/t/001/038/a1001038.js"></script>
-				<!--▲▲ アフリエィト ▲▲-->
-			</div>
-			
-			<div id="logo">
-				<!--@AGEs-->
-				<h5>@AGEs</h5>
-			</div>
-		</div>
-	</div>	
-</body>
-</html>
+{% block upload %}/AGEs/add_person/{% endblock %}
+
+<!-- 下記から各画面依存　-->
+{% block body_block %}
+<h2 id="glyphicons-glyphs">Create Person</h2>
+<link rel="stylesheet" href="{% static "css/upload.css" %}">
+<form id="person_form" method="post" action="/AGEs/add_person/">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+    	{{ hidden }}
+    {% endfor %}
+	<p>
+		Person name		: 
+		<input id="id_item_name" maxlength="128" name="item_name" type="text" />
+	</p>
+	<br>
+	<input class="btn btn-danger" type="submit" name="submit" value="Create New Person" />
+	<br>
+</form>
+<br>
+{% endblock %}

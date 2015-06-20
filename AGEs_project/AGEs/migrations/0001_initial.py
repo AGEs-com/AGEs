@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('category_name', models.CharField(max_length=64, unique=True)),
             ],
             options={
@@ -24,11 +24,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Item',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
-                ('item_name', models.CharField(max_length=128)),
-                ('item_id', models.CharField(max_length=128)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('item_name', models.CharField(max_length=128, unique=True)),
                 ('num_of_pictures', models.IntegerField(default=0)),
-                ('slug', models.SlugField(unique=True)),
                 ('category', models.ForeignKey(to='AGEs.Category')),
             ],
             options={
@@ -38,12 +36,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Picture',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('picture_name', models.CharField(max_length=128)),
                 ('register_date', models.DateField(default=datetime.datetime.now)),
                 ('age', models.IntegerField(default=0)),
                 ('description', models.CharField(max_length=200)),
-                ('image', models.ImageField(upload_to='picture', blank=True)),
+                ('image', models.ImageField(blank=True, upload_to='picture')),
                 ('item', models.ForeignKey(to='AGEs.Item')),
             ],
             options={

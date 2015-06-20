@@ -43,12 +43,12 @@ def add_person(request):
     # TODO: フォームがない場合は、再表示？    
     return render(request, 'AGEs/upload.html', {'form':form})
 
-def add_picture(request, slug):
+def add_picture(request, id):
     # FIXME: Itemオブジェクトを取得する(このやり方はあまりよくない気がする）
     try:
-        person = Item.objects.get(slug=slug)
-    except Category.DoesNotExist:
-        category = None
+        person = Item.objects.get(id=id)
+    except Item.DoesNotExist:
+        person = None
         
     # 登録が成功したかを示す変数（成功した場合はTrueになる）
     registered = False
@@ -61,22 +61,20 @@ def add_picture(request, slug):
         # formが有効ならば。。。
         if form.is_valid():
             # formのデータをDBに登録する
-            picture = form.save()
+            picture = form.save(commit=False)
+            picture.item = person
 
             # Did the user provide a profile picture?
             # If so, we need to get it from the input form and put it in the UserProfile model.
             if 'image' in request.FILES:
-                picture.image = request.FILES['picture']
+                picture.image = request.FILES['image']
 
-            # Now we save the UserProfile model instance.
+#             # FIXME: Pictureのitemに取得したpersonをセットする
+#             if person:
+#                 picture.item = person
+#                 # TOOD: DBへの保存については再度学習する必要あり
+#                 picture.save()
             picture.save()
-            
-            # FIXME: Pictureのitemに取得したpersonをセットする
-            if person:
-                picture.item = person
-                # TOOD: DBへの保存については再度学習する必要あり
-                picture.save()
-            
             # Update our variable to tell the template registration was successful.
             registered = True
 
@@ -94,4 +92,4 @@ def add_picture(request, slug):
     # Render the template depending on the context.
     return render(request,
             'AGEs/upload_picture.html',
-            {'form': form, 'registered': registered} )
+            {'form': form, 'registered': registered, 'id':id} )
