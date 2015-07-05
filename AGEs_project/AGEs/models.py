@@ -22,7 +22,7 @@ class Item(models.Model):
 #         
 #     # slugify()はアルファベット以外はエラーになるから変える必要あり
 #     def changeKanjiToAlphabet(self, item_name):
-#         # Kakasiを使って名前をローマ字sss
+#         # Kakasiを使って名前をローマ字
 #         slug = subprocess.getstatusoutput('echo "%s" | nkf -e | kakasi -Ha' %item_name)
     
     def __str__(self):

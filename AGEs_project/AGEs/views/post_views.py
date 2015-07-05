@@ -7,17 +7,20 @@ def add_person(request):
     
     # FIXME: Personオブジェクトを取得する(このやり方はあまりよくない気がする）
     try:
+        # PersonオブジェクトにセットするCategoryオブジェクトを取得する
         category = Category.objects.get(category_name='Person')
     except Category.DoesNotExist:
+        # 取得できなかった場合はNoneをセットする
         category = None
         
     # HTTP POSTの場合
     if request.method == 'POST':
+        # Formを取得する
         form = PersonForm(request.POST)
         
-        # 妥当なFormの場合
+        # 入力値が妥当かどうかをチェック
         if form.is_valid():
-            # TODO: Personをデータベースに保村する(イコールにする意味がわからない)
+            # TODO: Personをデータベースに保存する(イコールにする意味がわからない)
             # ここでFalseにするのがポイント？TrueだとCategoryを持ってないからエラーになる
             item = form.save(commit=False)
             
@@ -47,6 +50,8 @@ def add_picture(request, id):
     # FIXME: Itemオブジェクトを取得する(このやり方はあまりよくない気がする）
     try:
         person = Item.objects.get(id=id)
+        # Itemオブジェクトのnum_of_picturesの値を1増やす
+        person.num_of_pictures += 1
     except Item.DoesNotExist:
         person = None
         

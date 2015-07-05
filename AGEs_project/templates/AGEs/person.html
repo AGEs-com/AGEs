@@ -13,12 +13,12 @@
 <h2 id="glyphicons-glyphs">All List</h2>
 <div class="row" id="list">
 	{% if items %}
-              {% for item in items %}
-              <div class="col-xs-6 col-sm-4 col-md-2"><a href="/AGEs/item/{{ item.id }}">{{ item.item_name }}</a></div>
-              {% endfor %}
-       {% else %}
-           <strong>There are no categories present.</strong>
-       {% endif %}
+        {% for item in items %}
+        <div class="col-xs-6 col-sm-4 col-md-2"><a href="/AGEs/item/{{ item.id }}">{{ item.item_name }}({{ item.num_of_pictures}})</a></div>
+        {% endfor %}
+	{% else %}
+		<strong>There are no categories present.</strong>
+	{% endif %}
 </div>
 <br>
 {% endblock %}
