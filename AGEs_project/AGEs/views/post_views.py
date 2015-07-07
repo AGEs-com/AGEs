@@ -21,7 +21,7 @@ def add_person(request):
         # 入力値が妥当かどうかをチェック
         if form.is_valid():
             # TODO: Personをデータベースに保存する(イコールにする意味がわからない)
-            # ここでFalseにするのがポイント？TrueだとCategoryを持ってないからエラーになる
+            # Falseにすることインスタンスを取得する。TrueだとCategoryを持ってないからエラーになる
             item = form.save(commit=False)
             
             # Personのcategoryに取得したcategoryをセットする
@@ -50,8 +50,6 @@ def add_picture(request, id):
     # FIXME: Itemオブジェクトを取得する(このやり方はあまりよくない気がする）
     try:
         person = Item.objects.get(id=id)
-        # Itemオブジェクトのnum_of_picturesの値を1増やす
-        person.num_of_pictures += 1
     except Item.DoesNotExist:
         person = None
         
@@ -67,6 +65,11 @@ def add_picture(request, id):
         if form.is_valid():
             # formのデータをDBに登録する
             picture = form.save(commit=False)
+            
+            # Itemオブジェクトのnum_of_picturesの値を1増やして、DBに保存する
+            person.num_of_pictures += 1
+            person.save()
+            
             picture.item = person
 
             # Did the user provide a profile picture?

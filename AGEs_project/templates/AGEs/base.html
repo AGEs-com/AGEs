@@ -57,15 +57,13 @@
 					</p>
 				</form>
 				-->
-					<div id="custom-search-input">
-						<div id="cool_search" class="input-group col-md-3">
-							<form id="search_form" method="post" action="/AGEs/search/">
-								{% csrf_token %}
-								<input type="search" class="form-control input-lg" name="item_name" placeholder="Search NAME" />
-								<input type="submit" class="btn btn-default btn-lg" value="button">
-							</form>
-						</div>
-					</div>
+					<li id="custom-search-input">
+						<form id="search_form" method="post" action="/AGEs/search/" class="form-inline text-right">
+							{% csrf_token %}
+							<input type="search" class="form-control input-lg" name="item_name" placeholder="Search NAME" />
+							<input type="submit" class="btn btn-default btn-lg" value="Search">
+						</form>
+					</li>
 				</ul>
 			</div>
 			<!-- 下記から各画面依存　-->
@@ -73,7 +71,7 @@
 			{% endblock %}
 			<div id="header_aff">
 				<!--▼▼ アフリエィト ▼▼-->
-				<script type="text/javascript" src="http://100516.advision-adnw.jp/t/001/038/a1001038.js"></script>
+				<!-- <script type="text/javascript" src="http://100516.advision-adnw.jp/t/001/038/a1001038.js"></script> -->
 				<!--▲▲ アフリエィト ▲▲-->
 			</div>
 			<div id="logo">

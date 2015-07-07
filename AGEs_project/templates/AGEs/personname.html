@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="{% static "css/personname.css" %}">
 <!-- Lightbox -->
 <link rel="stylesheet" href="{% static "css/lightbox.css" %}">
-<link rel="stylesheet" href="{% static "js/lightbox.min.js" %}">
+<script type="text/javascript" src="{% static "js/lightbox.min.js" %}"></script>
 <h2 id="glyphicons-glyphs">{{ item_name }}</h2>
 <div class="row" id="list">
 	<ul class="thumbzoom clearfix">
@@ -22,13 +22,13 @@
                 {% for picture in pictures %}
                 <!-- picture.image.url の".url"を書くことがポイント！これで画像を表示できる -->
                 <li>
-                	<a href="{{ picture.image.url }}" rel="lightbox[group1]">
+                	<a href="{{ picture.image.url }}" data-title="{{ picture.age }}-year-old [Description]: {{ picture.description }}" rel="lightbox[group1]">
                 		<img src="{{ picture.image.url }}">
                 	</a>
                 </li>
                 {% endfor %}
             {% else %}
-                <strong>No pictures currently in category.</strong>
+                <strong>No pictures currently in {{ item_name }}.</strong>
             {% endif %}
         {% else %}
             The specified category {{ item_name }} does not exist!
