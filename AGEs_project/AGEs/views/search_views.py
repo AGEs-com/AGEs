@@ -7,7 +7,7 @@ def search_person(request):
     # HTTP POSTの場合
     if request.method == 'POST':
         form = PersonSearchForm(request.POST)
-        
+
         item_list = None
         # 入力データが適切かどうかを判断
         if form.is_valid():
@@ -18,7 +18,7 @@ def search_person(request):
                 item_list = items
             except Exception: # FIXME: 例外レベルが高いから修正の必要あり
                 pass
-                
+
         context_dict = {'items' : item_list}
         
     # TODO: フォームがない場合は、再表示？    

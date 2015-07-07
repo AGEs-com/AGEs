@@ -19,8 +19,5 @@ class PictureForm(forms.ModelForm):
         model = Picture
         fields = ('picture_name', 'age', 'description', 'image',)
         
-class PersonSearchForm(forms.ModelForm):
+class PersonSearchForm(forms.Form):
     item_name = forms.CharField(max_length=128)
-    class Meta:
-        model = Item
-        fields = ('item_name',)
