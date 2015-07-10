@@ -13,13 +13,9 @@
 <h2 id="glyphicons-glyphs">All List</h2>
 <div class="row" id="list">
 	{% if items %}
-        <ul class="list-inline">
         {% for item in items %}
-        <li style="width:200px; margin-bottom:15px;margin-right:0px;">
-			<a href="/AGEs/item/{{ item.id }}">{{ item.item_name }}({{ item.num_of_pictures}})</a>
-		</li>
+        <div class="col-xs-6 col-sm-4 col-md-2"><a href="/AGEs/item/{{ item.id }}">{{ item.item_name }}({{ item.num_of_pictures}})</a></div>
         {% endfor %}
-        </ul>
 	{% else %}
 		<strong>There is no person present.</strong>
 	{% endif %}

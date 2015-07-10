@@ -11,13 +11,17 @@ class PersonForm(forms.ModelForm):
         fields = ('item_name',)
         
 class PictureForm(forms.ModelForm): 
-    picture_name = forms.CharField(max_length=64, help_text="Please enter the picture name.")
+    picture_name = forms.CharField(max_length=30, help_text="Please enter the picture name.")
     age = forms.IntegerField(help_text="Please enter the person age.") 
     description = forms.CharField(max_length=200, help_text="Please enter the picture description.")
+    image = forms.ImageField(required=True)
     
     class Meta:
         model = Picture
         fields = ('picture_name', 'age', 'description', 'image',)
         
 class PersonSearchForm(forms.Form):
-    item_name = forms.CharField(max_length=128)
+    item_name = forms.CharField(max_length=128, required=True)
+
+class PictureSearchForm(forms.Form):
+    age = forms.IntegerField()
