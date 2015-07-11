@@ -1,4 +1,4 @@
-/*Username‚Ì“o˜^*/
+/*Usernameï¿½Ì“oï¿½^*/
 #uploadtable{
 	margin-top:1em;
 	color:black;
@@ -9,20 +9,20 @@
 	line-height: 20px;
 }
 
-#id_personname{
+#id_picture_name{
 	position: relative;
-	left: 100px;
+	#left: 100px;
 }
 #id_age{
 	position: relative;
-	left: 159px;
+	#left: 159px;
 }
-#id_comment{
+#id_description{
 	position: relative;
-	left: 125px;
+	#left: 125px;
 }
-#id_picture{
+#id_image{
 	position: relative;
-	left: 202px;
+	#left: 202px;
 }
     

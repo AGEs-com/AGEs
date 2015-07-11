@@ -16,11 +16,10 @@
     {% for hidden in form.hidden_fields %}
     	{{ hidden }}
     {% endfor %}
-	<p>
-		Person name		: 
+	<div class="form-group">
+		<label>Person name:</label>
 		<input id="id_item_name" maxlength="25" name="item_name" type="text" />
-	</p>
-	<br>
+	</div>
 	<input class="btn btn-primary" type="submit" name="submit" value="Create New Person" />
 	<br>
 </form>

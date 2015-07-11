@@ -2,6 +2,7 @@ from django.shortcuts import render
 from AGEs.forms import PersonForm, PictureForm
 from AGEs.views.person_views import person
 from AGEs.models import Category, Item
+from django.core.exceptions import ValidationError
 
 def add_person(request):
     
@@ -76,6 +77,9 @@ def add_picture(request, id):
             # If so, we need to get it from the input form and put it in the UserProfile model.
             if 'image' in request.FILES:
                 picture.image = request.FILES['image']
+                # 画像サイズが2MBより大きい場合はエラー
+                if picture.image._size > 2*1024*1024:
+                    raise ValidationError("Max file size is %sMB" % str(2))
 
 #             # FIXME: Pictureのitemに取得したpersonをセットする
 #             if person:

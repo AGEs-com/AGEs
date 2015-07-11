@@ -24,17 +24,21 @@
 	    {{ field.errors }}
 	{% endfor %}
 
-    Please enter the picture name.
-    <input id="id_picture_name" maxlength="64" name="picture_name" type="text" />
-    <br>
-    Please enter the person age.
+    <div class="form-group">
+        <label>Picture name:</label>
+        <input id="id_picture_name" maxlength="64" name="picture_name" type="text" />
+    </div>
+        <div class="form-group">
+        <label>Age:</label>
     <input id="id_age" name="age" type="number" />
-    <br>
-    Please enter the picture description.
-    <input id="id_description" maxlength="200" name="description" type="text" />
-    <br>
-    <input id="id_image" name="image" type="file" />
-    <br>
+    </div>
+    <div class="form-group">
+        <label>Picture description:</label>
+        <input id="id_description" maxlength="200" name="description" type="text" />
+    </div>
+    <div class="form-group">
+        <input id="id_image" name="image" type="file" />
+    </div>
 	<input type="submit" name="submit" value="Post Picture" class="btn-primary"/>	
 </form>
 <br>
