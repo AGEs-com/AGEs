@@ -1,0 +1,48 @@
+{% extends 'AGEs/object_base.html' %}
+{% load staticfiles %}
+
+{% block title %}AGEs/Object{% endblock %}
+
+{% block body_title %}Object{% endblock %}
+
+{% block upload %}/AGEs/add_object_picture/{{ id }}{% endblock %}
+
+<!-- 下記から各画面依存　-->
+{% block body_block %}
+<h2 id="glyphicons-glyphs">Post a picture</h2>
+<link rel="stylesheet" href="{% static "css/upload.css" %}">
+{% if registered %}
+	<strong>Thank you for posting!</strong>
+{% endif %}
+<form enctype="multipart/form-data" id="picture_form" method="post" action="/AGEs/add_object_picture/{{ id }}">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+ 	   {{ hidden }}
+    {% endfor %}
+    
+    <!--
+    {% for field in form.visible_fields %}
+	    {{ field.errors }}
+	{% endfor %}
+	-->
+
+    <div class="form-group">
+        <label>Picture name:</label>
+        <input id="id_picture_name" maxlength="64" name="picture_name" type="text" />
+    </div>
+        <div class="form-group">
+        <label>Age:</label>
+    <input id="id_age" name="age" type="number" />
+    </div>
+    <div class="form-group">
+        <label>Picture description:</label>
+        <input id="id_description" maxlength="200" name="description" type="text" />
+    </div>
+    <div class="form-group">
+        <label>Picture(Within 2MB)</label>
+        <input id="id_image" name="image" type="file" />
+    </div>
+	<input type="submit" name="submit" value="Post Picture" class="btn-primary"/>	
+</form>
+<br>
+{% endblock %}

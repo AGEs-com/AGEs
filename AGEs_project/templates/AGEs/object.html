@@ -1,11 +1,11 @@
-{% extends 'AGEs/base.html' %}
+{% extends 'AGEs/object_base.html' %}
 {% load staticfiles %}
 
-{% block title %}AGEs/Person{% endblock %}
+{% block title %}AGEs/Object{% endblock %}
 
-{% block body_title %}Person{% endblock %}
+{% block body_title %}Object{% endblock %}
 
-{% block upload %}/AGEs/add_person/{% endblock %}
+{% block upload %}/AGEs/add_object/{% endblock %}
 
 <!-- 下記から各画面依存　-->
 {% block body_block %}
@@ -14,10 +14,10 @@
 <div class="row" id="list">
 	{% if items %}
         {% for item in items %}
-        <div class="col-xs-6 col-sm-4 col-md-2"><a href="/AGEs/item/{{ item.id }}">{{ item.item_name }}({{ item.num_of_pictures}})</a></div>
+        <div class="col-xs-6 col-sm-4 col-md-2"><a href="/AGEs/object_pictures/{{ item.id }}">{{ item.item_name }}({{ item.num_of_pictures}})</a></div>
         {% endfor %}
 	{% else %}
-		<strong>There is no person present.</strong>
+		<strong>There is no object present.</strong>
 	{% endif %}
 </div>
 <br>

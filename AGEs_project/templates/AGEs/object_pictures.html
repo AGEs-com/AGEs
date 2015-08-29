@@ -1,14 +1,14 @@
 	  		
-{% extends 'AGEs/base.html' %}
+{% extends 'AGEs/object_base.html' %}
 {% load staticfiles %}
 
-{% block title %}AGEs/Person/Pictures{% endblock %}
+{% block title %}AGEs/Object/Pictures{% endblock %}
 
-{% block body_title %}Person{% endblock %}
+{% block body_title %}Object{% endblock %}
 
 {% block body_search %}
 <li id="custom-search-input">
-    <form id="search_form" method="post" action="/AGEs/search_picture/{{ id }}" class="form-inline text-right">
+    <form id="search_form" method="post" action="/AGEs/search_object_pictures/{{ id }}" class="form-inline text-right">
         {% csrf_token %}
         <input type="search" class="form-control input-lg" name="age" placeholder="Enter AGE" />
         <input type="submit" class="btn btn-default btn-lg" value="Search">
@@ -16,7 +16,7 @@
 </li>
 {% endblock %}
 
-{% block upload %}/AGEs/add_picture/{{ id }}{% endblock %}
+{% block upload %}/AGEs/add_object_picture/{{ id }}{% endblock %}
 
 <!-- 下記から各画面依存　-->
 {% block body_block %}

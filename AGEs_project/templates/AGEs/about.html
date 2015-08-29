@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ja" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="UTF-8">
+	<title>AGEs</title>
+	<!--検索エンジン向けの情報を提供する-->
+	<meta name="description" content="アイドル、俳優、お酒、おもちゃ。好きなものの写真を時系列で整理しませんか。"/>
+	<meta name="keywords" content="画像,俳優,アイドル,女優,酒,おもちゃ,プラットフォーム,PLATFORM,FACEBOOK,Twitter"/>
+	
+	<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/common.css" %}">
+	<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+
+</head>
+
+<body>
+	<div id="style" class="container bs-docs-container">
+		<div class="row">
+        	<a id="headages" href="/AGEs/" class="navbar-brand">
+        	</a>
+		</div>
+
+        <div class="col-lg-12" role="main">
+        	<div class="bs-docs-section">
+		  		<h1 id="whatsages" class="page-header"><a href="/AGEs/" class="header">What's AGEs ?</a></h1>
+		  		<h2 id="glyphicons-glyphs">Concept</h2>
+		            <p style="line-height: 150%">
+                        AGEs preserves person and object pictures in our world with a view of AGE.
+                        Everybody can post a picture on AGEs.
+                        Let's create AGEs together!
+                    </p>
+					<p style="line-height: 150%">
+                        AGEsは、AGEという観点で世の中の人物、オブジェクトの画像を保存していくサイトです。
+                        誰でもAGEsに画像を投稿することができます。
+                        みなさんでAGEsを構築しましょう。
+					</p>
+				<h2 id="glyphicons-glyphs">Policy</h2>
+                    <p style="line-height: 150%">
+                        Please don't forget permission of pictures when you reproduce them from other website.
+                        In addtion, all pictures on AGEs are protected by copyright.
+                        Since copyright holder has these right, please get permission personally.
+                        AGEs is supported by many people.
+                        We bear no responsiblity for any problems.
+                    </p>
+					<p style="line-height: 150%">
+                        投稿する画像を他サイトから転載する場合、必ず許可を取ってください。
+                        また、このサイト中の画像には各々著作権が発生しています。
+                        それらの著作権は著作権保持者が保持していますので、個人的に許可をとってください。
+                        AGEsは多くの人に支えてもらい作り上げられています。
+                        諸問題には私たちは責任を持ちません。
+					</p>
+			</div>
+		
+			<div id="logo">
+				<!--@AGEs-->
+				<h5>@AGEs</h5>
+			</div>
+			<!--一番下の段の各項目ブロック(押下すると各画面へ遷移)-->
+			<div id="footer">
+				<div class="inner">
+					<u1>
+						<!--ロゴ-->
+						<img id="logo" src="ロゴURL" width="15" height="15" alt="LOGO"/>
+					</u1>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

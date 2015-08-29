@@ -1,11 +1,11 @@
-{% extends 'AGEs/base.html' %}
+{% extends 'AGEs/person_base.html' %}
 {% load staticfiles %}
 
 {% block title %}AGEs/Person{% endblock %}
 
 {% block body_title %}Person{% endblock %}
 
-{% block upload %}/AGEs/add_picture/{{ id }}{% endblock %}
+{% block upload %}/AGEs/add_person_picture/{{ id }}{% endblock %}
 
 <!-- 下記から各画面依存　-->
 {% block body_block %}
@@ -14,15 +14,17 @@
 {% if registered %}
 	<strong>Thank you for posting!</strong>
 {% endif %}
-<form enctype="multipart/form-data" id="picture_form" method="post" action="/AGEs/add_picture/{{ id }}">
+<form enctype="multipart/form-data" id="picture_form" method="post" action="/AGEs/add_person_picture/{{ id }}">
     {% csrf_token %}
     {% for hidden in form.hidden_fields %}
  	   {{ hidden }}
     {% endfor %}
-    
+
+    <!--
     {% for field in form.visible_fields %}
 	    {{ field.errors }}
 	{% endfor %}
+	-->
 
     <div class="form-group">
         <label>Picture name:</label>
@@ -37,6 +39,7 @@
         <input id="id_description" maxlength="200" name="description" type="text" />
     </div>
     <div class="form-group">
+        <label>Picture(Within 2MB)</label>
         <input id="id_image" name="image" type="file" />
     </div>
 	<input type="submit" name="submit" value="Post Picture" class="btn-primary"/>	

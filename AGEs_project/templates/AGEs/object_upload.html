@@ -1,0 +1,27 @@
+{% extends 'AGEs/object_base.html' %}
+{% load staticfiles %}
+
+{% block title %}AGEs/Object{% endblock %}
+
+{% block body_title %}Object{% endblock %}
+
+{% block upload %}/AGEs/add_object/{% endblock %}
+
+<!-- 下記から各画面依存　-->
+{% block body_block %}
+<h2 id="glyphicons-glyphs">Create Object</h2>
+<link rel="stylesheet" href="{% static "css/upload.css" %}">
+<form id="person_form" method="post" action="/AGEs/add_object/">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+    	{{ hidden }}
+    {% endfor %}
+	<div class="form-group">
+		<label>Object name:</label>
+		<input id="id_item_name" maxlength="25" name="item_name" type="text" />
+	</div>
+	<input class="btn btn-primary" type="submit" name="submit" value="Create New Object" />
+	<br>
+</form>
+<br>
+{% endblock %}

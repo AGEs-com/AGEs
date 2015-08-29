@@ -15,7 +15,7 @@ class PictureForm(forms.ModelForm):
     age = forms.IntegerField(help_text="Please enter the person age.") 
     description = forms.CharField(max_length=200, help_text="Please enter the picture description.")
     image = forms.ImageField(required=True)
-    
+
     class Meta:
         model = Picture
         fields = ('picture_name', 'age', 'description', 'image',)

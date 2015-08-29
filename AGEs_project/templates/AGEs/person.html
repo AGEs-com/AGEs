@@ -1,4 +1,4 @@
-{% extends 'AGEs/base.html' %}
+{% extends 'AGEs/person_base.html' %}
 {% load staticfiles %}
 
 {% block title %}AGEs/Person{% endblock %}
@@ -16,7 +16,7 @@
         <ul class="list-inline">
         {% for item in items %}
         <li style="width:200px; margin-bottom:15px;margin-right:0px;">
-			<a href="/AGEs/item/{{ item.id }}">{{ item.item_name }}({{ item.num_of_pictures}})</a>
+			<a href="/AGEs/person_pictures/{{ item.id }}">{{ item.item_name }}({{ item.num_of_pictures}})</a>
 		</li>
         {% endfor %}
         </ul>

@@ -13,4 +13,4 @@ def about(request):
     #テンプレートエンジンにコンテキストとしてDictionaryを用意する
     context_dict = {}
     # Client側にレンダリングしたresponseを送る
-    return render(request, 'AGEs/whatsages.html', context_dict)
+    return render(request, 'AGEs/about.html', context_dict)
